@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,6 +8,8 @@
     </head>
 
     <body>
+        @include('commons.error_messages')
+
         @yield('content')
     </body>
 </html>

@@ -47,8 +47,17 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-         $task = new Task;
+         $this->validate($request, [
+            'title' => 'required|max:191',   // 追加
+            'content' => 'required|max:191',
+            'status' => 'required|max:10',
+            
+        ]);
+
+        $task = new Task;
+        $task->title = $request->title;    // 追加
         $task->content = $request->content;
+        $task->status = $request->status;
         $task->save();
 
         return redirect('/');
@@ -92,12 +101,20 @@ class TasksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-         $task = Task::find($id);
+    
+    {$this->validate($request, [
+            'title' => 'required|max:191',   // 追加
+            'content' => 'required|max:191',
+            'status' => 'required|max:10',
+        ]);
+
+        $task = new Task;
+        $task->title = $request->title;    // 追加
         $task->content = $request->content;
         $task->save();
-
+        
         return redirect('/');
+        
     }
 
     /**

@@ -2,17 +2,15 @@
 
 @section('content')
 
-<!-- ここにページ毎のコンテンツを書く -->
+    <h1>id = {{ $task->id }} のtask詳細ページ</h1>
 
+    <p>タイトル: {{ $task->title }}</p>
+    <p>task: {{ $task->content }}</p>
 
-     <h1>id = {{ $task->id }} のメッセージ詳細ページ</h1>
-
-    <p>{{ $task->content }}</p>
-
-    {!! link_to_route('tasks.edit', 'このtask編集', ['id' => $task->id]) !!}
+    {!! link_to_route('tasks.edit', 'このメッセージ編集', ['id' => $task->id]) !!}
 
     {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
         {!! Form::submit('削除') !!}
     {!! Form::close() !!}
-    
+
 @endsection
