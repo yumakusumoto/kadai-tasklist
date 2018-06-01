@@ -17,12 +17,12 @@
         
         <tr>
             <th>task</th>
-            <td>{{ $task->title }}</td>
+            <td>{{ $task->content }}</td>
         </tr>
         
         <tr>
             <th>status</th>
-            <td>{{ $task->content }}</td>
+            <td>{{ $task->status }}</td>
         </tr>
         
         
